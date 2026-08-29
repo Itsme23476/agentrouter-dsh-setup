@@ -1,0 +1,28 @@
+# Reference snippet — the AgentRouter provider block that belongs in
+# ~/.dsh/settings.yaml (DeepSeek Harness config). scripts/configure-dsh.mjs
+# writes this for you; this file is just for reference / manual setup.
+#
+# The REAL API key is NOT here — dsh sends the placeholder credential and the
+# local proxy (proxy/proxy.mjs) injects your real key from proxy/.key.
+
+llm-pi-ai:
+  providers:
+    agentrouter:
+      displayName: AgentRouter
+      apiKeyEnv: AGENTROUTER_API_KEY   # resolved from ~/.dsh/.credentials.yaml (placeholder ok)
+      api: openai-completions
+      baseURL: http://127.0.0.1:8788/v1   # the local proxy, NOT agentrouter.org directly
+      compat:
+        supportsDeveloperRole: false
+        maxTokensField: max_tokens
+      models:
+        - id: claude-opus-5
+        - id: claude-opus-4-8
+        - id: deepseek-v4-flash
+        - id: glm-5.3
+        - id: gpt-5.6-sol
+
+# Optional: default model for new sessions (deepseek-v4-flash is free).
+agent-default-model:
+  provider: agentrouter
+  model: deepseek-v4-flash

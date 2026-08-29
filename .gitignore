@@ -1,0 +1,11 @@
+# Secrets — never commit these
+proxy/.key
+*.key
+!*.key.example
+.env
+.env.*
+
+# Node / OS
+node_modules/
+.DS_Store
+*.log
