@@ -74,11 +74,16 @@ Your AgentRouter `default` group exposes these (via the proxy):
 
 | Model ID | Notes |
 |---|---|
-| `deepseek-v4-flash` | DeepSeek, reasoning, **free** on the default group |
+| `deepseek-v4-flash` | DeepSeek, reasoning, **cheapest** of the five (per-token, base rate) |
 | `claude-opus-5` | Anthropic, uses credits |
 | `claude-opus-4-8` | Anthropic, uses credits |
 | `glm-5.3` | Zhipu, uses credits |
 | `gpt-5.6-sol` | OpenAI, uses credits |
+
+**Nothing here is free.** Every model is billed per token and draws down your
+AgentRouter balance; `deepseek-v4-flash` is simply the cheapest (base rate),
+while `claude-opus-5` / `claude-opus-4-8` cost roughly 4× on input and ~6× on
+output. See exact deductions in your AgentRouter console → **Usage log**.
 
 Switch models per session from the composer's model picker — they're all there
 at once, no restart needed. Run `configure-dsh.mjs` again after AgentRouter adds

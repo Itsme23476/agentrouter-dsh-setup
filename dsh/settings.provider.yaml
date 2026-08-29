@@ -22,7 +22,8 @@ llm-pi-ai:
         - id: glm-5.3
         - id: gpt-5.6-sol
 
-# Optional: default model for new sessions (deepseek-v4-flash is free).
+# Optional: default model for new sessions (deepseek-v4-flash is the cheapest;
+# all models are billed per token and draw down your AgentRouter balance).
 agent-default-model:
   provider: agentrouter
   model: deepseek-v4-flash

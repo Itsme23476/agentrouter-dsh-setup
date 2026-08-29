@@ -63,13 +63,13 @@ if (/^\s{4}agentrouter:/m.test(settings)) {
   console.log('settings.yaml: added AgentRouter provider with 5 models.')
 }
 
-// Optional: set a default model if none is configured (free model, to be safe).
+// Optional: set a default model if none is configured (cheapest model, to be safe).
 settings = read(SETTINGS)
 if (!/^agent-default-model:/m.test(settings)) {
   if (settings.length && !settings.endsWith('\n')) settings += '\n'
   settings += DEFAULT_MODEL_BLOCK
   writeFileSync(SETTINGS, settings, 'utf8')
-  console.log('settings.yaml: default model set to deepseek-v4-flash (free). Change it in-app anytime.')
+  console.log('settings.yaml: default model set to deepseek-v4-flash (cheapest; billed per token). Change it in-app anytime.')
 }
 
 // --- .credentials.yaml (placeholder only; proxy injects the real key) ---
